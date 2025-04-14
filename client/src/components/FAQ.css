@@ -18,9 +18,9 @@
     margin-bottom: 40px;
     text-shadow: 0 0 10px #e67e22;
   }
-  .faq-title:hover{
+  /* .faq-title:hover{
     color:white;
-  }
+  } */
   
   /* Styling for each FAQ box */
   .faq-item {
