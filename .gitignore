@@ -1,1 +1,6 @@
+.envnode_modules/
 .env
+build/
+dist/
+.vscode/
+.idea/
