@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from "react-router-dom"; 
 import './AnswerPage.css'
+
 const AnswerPage = () => {
   const { questionId } = useParams();
   const navigate = useNavigate(); 
@@ -10,15 +11,16 @@ const AnswerPage = () => {
   const [secretKey, setSecretKey] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const correctSecretKey = process.env.REACT_APP_SECRET_KEY; 
+  const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000"; 
+  // const correctSecretKey = process.env.REACT_APP_SECRET_KEY; 
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/question/${questionId}`)
+    axios.get(`${apiUrl}/api/question/${questionId}`)
       .then(response => {
         setQuestion(response.data);
       })
       .catch(error => console.error('Error fetching question:', error));
-  }, [questionId]);
+  }, [questionId, apiUrl]);
 
   const handleAnswerSubmit = (e) => {
     e.preventDefault();
@@ -27,9 +29,7 @@ const AnswerPage = () => {
       return;
     }
 
-    
-
-    axios.post('http://localhost:5000/api/myAnswers', {
+    axios.post(`${apiUrl}/api/myAnswers`, {
       questionId,
       answer,
       secretKey,
