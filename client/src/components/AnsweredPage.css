@@ -3,7 +3,7 @@
   background-color: #121212;
   color: white;
   font-family: "Arial", sans-serif;
-  padding: 120px 20px 20px 20px; /* top right bottom left */
+  padding: 120px 20px 20px 20px; 
   min-height: 100vh;
   display: flex;
   flex-direction: column;

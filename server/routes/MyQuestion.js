@@ -19,10 +19,7 @@ router.post("/MyQuestion", async (req, res) => {
 });
 
 router.post("/myAnswers", async (req, res) => {
-  console.log("🔒 Backend Expected Key:", process.env.ADMIN_SECRET);
   const { questionId, answer, secretKey } = req.body;
-  console.log("🔑 Received Secret Key:", secretKey);
-  console.log("🔒 Expected Secret Key:", process.env.ADMIN_SECRET);
   try {
     const question = await Question.findById(questionId);
     if (secretKey !== process.env.ADMIN_SECRET) {
@@ -41,8 +38,6 @@ router.post("/myAnswers", async (req, res) => {
     res.status(500).json({ message: "Error saving answer", error });
   }
 });
-
-// Route to get all questions with answers
 router.get("/all", async (req, res) => {
   try {
     const allQuestions = await Question.find();
@@ -73,7 +68,6 @@ router.get("/all/:id", async (req, res) => {
     res.status(500).json({ message: "Error fetching question", error });
   }
 });
-// In your question routes file
 router.get("/question/:id", (req, res) => {
   const { id } = req.params;
   Question.findById(id)
@@ -87,13 +81,11 @@ router.get("/question/:id", (req, res) => {
       res.status(500).json({ message: "Error fetching question", error: err })
     );
 });
-// Route to fetch answered questions
-// Route to fetch answered questions
+
 router.get("/answers", async (req, res) => {
   try {
     const answeredQuestions = await Question.find({ answer: { $ne: null } });
-    // console.log("Answered Questions:", answeredQuestions); // Add this for debugging
-    res.status(200).json(answeredQuestions); // Send the answered questions to the frontend
+    res.status(200).json(answeredQuestions); 
   } catch (error) {
     console.error("Error fetching answered questions:", error);
     res.status(500).json({ message: "Error fetching answered questions" });
