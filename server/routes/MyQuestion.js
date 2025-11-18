@@ -2,11 +2,8 @@ const express = require("express");
 const router = express.Router();
 const Question = require("../models/Question");
 
-// POST /api/MyQuestion
 router.post("/MyQuestion", async (req, res) => {
   const { name, email, question, secretKey } = req.body;
-  // console.log("🔑 Received Secret Key:", secretKey);
-  // console.log("🔒 Expected Secret Key:", process.env.ADMIN_SECRET);
   if (!name || !email || !question) {
     return res.status(400).json({ message: "Missing required fields" });
   }
@@ -21,10 +18,9 @@ router.post("/MyQuestion", async (req, res) => {
   }
 });
 
-// POST /api/myAnswers
 router.post("/myAnswers", async (req, res) => {
+  console.log("🔒 Backend Expected Key:", process.env.ADMIN_SECRET);
   const { questionId, answer, secretKey } = req.body;
-  // Debug logs
   console.log("🔑 Received Secret Key:", secretKey);
   console.log("🔒 Expected Secret Key:", process.env.ADMIN_SECRET);
   try {
@@ -56,7 +52,6 @@ router.get("/all", async (req, res) => {
   }
 });
 
-// Route to get only answered questions
 router.get("/answered", async (req, res) => {
   try {
     const answeredQuestions = await Question.find({ answer: { $ne: null } });

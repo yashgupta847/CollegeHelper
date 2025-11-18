@@ -1,31 +1,34 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-require('dotenv').config();
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
+
+const methodOverride = require("method-override");
+app.use(methodOverride("_method"));
+
 app.use(cors());
 app.use(express.json());
 
-// Separate route handlers for MyQuestion and myAnswer
-const questionRoutes = require('./routes/MyQuestion');  // Route for submitting questions
-const answerRoutes = require('./routes/myAnswer');  // Route for submitting answers to questions
+// Only this ONE route file (it contains questions + answers)
+const questionRoutes = require("./routes/MyQuestion");
 
-// Routes for handling questions and answers
-app.use('/api', questionRoutes);
+// Register it
+app.use("/api", questionRoutes);
 
-// Basic health check route
-app.get('/', (req, res) => {
-  res.send('API is running...');
+// Health check
+app.get("/", (req, res) => {
+  res.send("API is running...");
 });
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
+// DB connect
+mongoose
+  .connect("mongodb+srv://yashgupta5046:ietlko123@query.qihw2g1.mongodb.net/?appName=Query")
   .then(() => {
-    console.log('MongoDB Connected');
+    console.log("MongoDB Connected");
 
-    // Use the port provided by Render or fallback to 5000
     const port = process.env.PORT || 5000;
     app.listen(port, () => console.log(`Server running on port ${port}`));
   })
-  .catch(err => console.log(err));
+  .catch((err) => console.log(err));

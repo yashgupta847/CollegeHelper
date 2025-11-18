@@ -1,50 +1,58 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useParams, useNavigate } from "react-router-dom"; 
-import './AnswerPage.css'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
+import "./AnswerPage.css";
 
 const AnswerPage = () => {
   const { questionId } = useParams();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [question, setQuestion] = useState(null);
-  const [answer, setAnswer] = useState('');
-  const [secretKey, setSecretKey] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000"; 
-  // const correctSecretKey = process.env.REACT_APP_SECRET_KEY; 
+  const [answer, setAnswer] = useState("");
+  const [secretKey, setSecretKey] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
+  const correctSecretKey = process.env.REACT_APP_ADMIN_SECRET;
 
   useEffect(() => {
-    axios.get(`${apiUrl}/api/question/${questionId}`)
-      .then(response => {
+    axios
+      .get(`${apiUrl}/api/question/${questionId}`)
+      .then((response) => {
         setQuestion(response.data);
       })
-      .catch(error => console.error('Error fetching question:', error));
+      .catch((error) => console.error("Error fetching question:", error));
   }, [questionId, apiUrl]);
 
   const handleAnswerSubmit = (e) => {
     e.preventDefault();
     if (!answer.trim()) {
-      setErrorMessage('Answer cannot be empty');
+      setErrorMessage("Answer cannot be empty");
       return;
     }
-
-    axios.post(`${apiUrl}/api/myAnswers`, {
-      questionId,
-      answer,
-      secretKey,
-    })
-    .then(response => {
-      alert('✅ Answer submitted successfully!');
-      setAnswer('');
-      setSecretKey('');
-      setErrorMessage('');
-      navigate('/answers'); 
-    })
-    .catch(error => {
-      console.error('Error submitting answer:', error);
-      setErrorMessage('Error submitting answer. Please try again.');
-    });
+    if (!secretKey.trim()) {
+      setErrorMessage("Secret key is required");
+      return;
+    }
+    // if (secretKey !== correctSecretKey) {
+    //   setErrorMessage("Invalid secret key");
+    //   return;
+    // }
+    axios
+      .post(`${apiUrl}/api/myAnswers`, {
+        questionId,
+        answer,
+        secretKey,
+      })
+      .then((response) => {
+        alert("✅ Answer submitted successfully!");
+        setAnswer("");
+        setSecretKey("");
+        setErrorMessage("");
+        navigate("/answers");
+      })
+      .catch((error) => {
+        console.error("Error submitting answer:", error);
+        setErrorMessage("Error submitting answer. Please try again.");
+      });
   };
 
   return (
@@ -68,7 +76,9 @@ const AnswerPage = () => {
               className="secret-key-input"
             />
             {errorMessage && <p className="error-message">{errorMessage}</p>}
-            <button type="submit" className="submit-button">Submit Answer</button>
+            <button type="submit" className="submit-button">
+              Submit Answer
+            </button>
           </form>
         </div>
       ) : (

@@ -10,7 +10,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to="/" onClick={() => setMenuOpen(false)}>
-          <img src="https://tse1.mm.bing.net/th?id=OIP.Bo5rRKPePdxDDE3BxyivMAHaHa&pid=Api&P=0&h=180" />
+          <img src={logoImage} />
         </Link>
       </div>
 
