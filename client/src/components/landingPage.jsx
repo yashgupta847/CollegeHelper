@@ -8,7 +8,7 @@ const LandingPage = () => {
     <div className="landing-page">
       {/* Header */}
       <header className="landing-header">
-        <h1>Welcome to IET Lucknow Juniors</h1>
+        <h1>Welcome to IET Lucknow Guys.</h1>
       </header>
 
       {/* Image Section */}
