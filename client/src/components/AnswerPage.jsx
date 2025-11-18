@@ -11,7 +11,6 @@ const AnswerPage = () => {
   const [secretKey, setSecretKey] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
-  const correctSecretKey = process.env.REACT_APP_ADMIN_SECRET;
 
   useEffect(() => {
     axios
@@ -32,10 +31,7 @@ const AnswerPage = () => {
       setErrorMessage("Secret key is required");
       return;
     }
-    // if (secretKey !== correctSecretKey) {
-    //   setErrorMessage("Invalid secret key");
-    //   return;
-    // }
+ 
     axios
       .post(`${apiUrl}/api/myAnswers`, {
         questionId,

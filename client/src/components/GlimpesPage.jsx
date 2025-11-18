@@ -54,11 +54,10 @@ const GlimpsesPage = () => {
         ))}
       </div>
 
-      {/* Modal for viewing the clicked image */}
       {isModalOpen && (
         <div className="modal" onClick={closeModal}>
           <span className="close" onClick={closeModal}>&times;</span>
-          <img className="modal-content" src={modalImage} alt="Modal Image" />
+          <img className="modal-content" src={modalImage} alt="" />
         </div>
       )}
     </div>
