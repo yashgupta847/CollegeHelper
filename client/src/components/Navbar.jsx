@@ -9,21 +9,32 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to="/" onClick={() => setMenuOpen(false)}>
-          <img src="http://online.ietlucknow.ac.in/assets/img/flag.png" />
+          <img
+            src="http://online.ietlucknow.ac.in/assets/img/flag.png"
+            alt="IET Logo"
+          />
         </Link>
+
         <Link to="/" onClick={() => setMenuOpen(false)}>
-          <img src="https://www.ietlucknow.ac.in/sites/default/files/inline-images/aktu_logo.png" />
+          <img
+            src="https://www.ietlucknow.ac.in/sites/default/files/inline-images/aktu_logo.png"
+            alt="AKTU Logo"
+          />
         </Link>
       </div>
-
-      {/* ===== College Name Section with Class ===== */}
       <div className="navbar-title">
         Institute of Engineering & Technology, Lucknow <br />
         अभियांत्रिकी एवं प्रौद्योगिकी संस्थान, लखनऊ <br />
         An{" "}
-        <a href="https://www.ietlucknow.ac.in/sites/default/files/docs/UGC_Autonomy_2728.pdf">Autonomous </a>
-         Constituent Institute of Dr. A.P.J. Abdul Kalam Technical
-        University Uttar Pradesh, Lucknow
+        <a
+          href="https://www.ietlucknow.ac.in/sites/default/files/docs/UGC_Autonomy_2728.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Autonomous
+        </a>{" "}
+        Constituent Institute of Dr. A.P.J. Abdul Kalam Technical University
+        Uttar Pradesh, Lucknow
       </div>
 
       <div

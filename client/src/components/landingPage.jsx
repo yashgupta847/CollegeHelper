@@ -2,21 +2,20 @@ import React from "react";
 import "./LandingPage.css";
 import logoImage from "./WhatsApp Image 2025-04-13 at 21.53.31_d44fcd1e.jpg";
 import { Link } from "react-router-dom";
-
+import img from "../logo.png";
 const LandingPage = () => {
   return (
     <div className="landing-page">
       {/* Header */}
       <header className="landing-header">
-        <h1>Welcome to IET Lucknow Guys.</h1>
+        <img src={img} />
       </header>
 
       {/* Image Section */}
       <div className="image-container">
-        <img src={logoImage} alt="IET Lucknow" className="college-image" />
+        <img src="/assets/image.png" alt="IET Lucknow" className="college-image" />
       </div>
 
-      {/* Description Section */}
       <section className="description">
         <p>
           The Institute of Engineering and Technology (IET) in Lucknow is a

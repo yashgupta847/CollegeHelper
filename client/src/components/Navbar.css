@@ -90,6 +90,9 @@
   color: #ffffff;
   max-width: 600px;
 }
+.navbar-title Link{
+  text-decoration:none;
+}
 
 /* If you want spacing between logos and text */
 .navbar-logo {
