@@ -13,7 +13,7 @@ const LandingPage = () => {
 
       {/* Image Section */}
       <div className="image-container">
-          <img src={logoImage} alt="IET Lucknow" className="college-image" />
+        <img src={logoImage} alt="IET Lucknow" className="college-image" />
       </div>
 
       {/* Description Section */}
@@ -50,9 +50,11 @@ const LandingPage = () => {
           <li>
             One senior, Abhishek Shrivastava sir, is very well-known in our
             college. Check his{" "}
-            <a href="https://www.linkedin.com/in/-abhishek-srivastava/">
-              LinkedIn
-            </a>{" "}
+            <i>
+              <a href="https://www.linkedin.com/in/-abhishek-srivastava/">
+                LinkedIn
+              </a>{" "}
+            </i>
             to know more.
           </li>
           <li>

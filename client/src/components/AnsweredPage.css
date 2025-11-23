@@ -1,9 +1,9 @@
 /* General page styles */
 .answered-questions-page {
-  background-color: #121212;
+  background-color: #ffffff;
   color: white;
   font-family: "Arial", sans-serif;
-  padding: 120px 20px 20px 20px; 
+  padding: 120px 20px 5px 20px; 
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,17 +17,13 @@
   color: #ffffff;
   margin-bottom: 40px;
   font-weight: 700;
-  text-shadow: 0 0 10px #e67e22;
 }
-.page-title:hover{
-  color:white;
-}
+
 
 /* Styling for the question list */
 .answered-questions-list {
   width: 100%;
   max-width: 800px;
-  margin-top: 40px;
 }
 
 /* No answered questions message */
@@ -69,13 +65,13 @@
   margin-top: 10px;
   white-space: normal; /* Ensures text inside the paragraph breaks properly */
   padding: 10px; /* Padding to give space between text and border */
-  background-color: #2c2c2c; /* Dark background for the answer text */
+  background-color: #766565; /* Dark background for the answer text */
   border-radius: 5px; /* Rounded corners for the answer */
 }
 
 /* Styling for No answer available message */
 .question-body.no-answer {
-  color: #ffcc00; /* Bright yellow for no answer message */
+  color: #5f8095; /* Bright yellow for no answer message */
   font-style: italic;
   text-align: center;
   padding: 10px;
@@ -84,7 +80,7 @@
 }
 /* Styling for No answer available message */
 .no-answer-message {
-  color: #ffcc00; /* Bright yellow for no answer message */
+  color: #76afb4; /* Bright yellow for no answer message */
   font-style: italic;
   text-align: center;
   padding: 10px;
@@ -92,4 +88,48 @@
   border-radius: 5px;
   display: inline-block; /* Ensure it doesn't take up full width */
   font-size: 1rem; /* Match the size of the answers */
+}
+/* Small up button at right bottom */
+.up-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: #ffffff;
+  border: 1px solid #d4dde3;
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 2px 6px;
+  cursor: pointer;
+  color: #637b8c;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Remove hover animation */
+.up-btn:hover {
+  transform: none;
+  color: #637b8c;
+}
+
+/* Ensure container supports absolute child */
+.question-item {
+  position: relative;
+}
+
+/* Updated answer color */
+.answer-text {
+  color: #637b8c !important;
+  font-size: 15px;
+}
+.answer-text {
+  font-size: 13px !important;   /* smaller ANS text */
+  color: #637b8c !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ans-icon {
+  width: 14px !important;
+  height: 14px !important;
+  margin: 0 4px !important;
 }

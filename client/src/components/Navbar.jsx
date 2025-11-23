@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import logoImage from "./WhatsApp Image 2025-04-13 at 21.53.31_d44fcd1e.jpg";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,8 +9,21 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to="/" onClick={() => setMenuOpen(false)}>
-          <img src={logoImage} />
+          <img src="https://tse2.mm.bing.net/th/id/OIP.izIPeeYff_Brk7NvxmqK-QHaHa?pid=Api&P=0&h=180" />
         </Link>
+        <Link to="/" onClick={() => setMenuOpen(false)}>
+          <img src="https://www.ietlucknow.ac.in/sites/default/files/inline-images/aktu_logo.png" />
+        </Link>
+      </div>
+
+      {/* ===== College Name Section with Class ===== */}
+      <div className="navbar-title">
+        Institute of Engineering & Technology, Lucknow <br />
+        अभियांत्रिकी एवं प्रौद्योगिकी संस्थान, लखनऊ <br />
+        An{" "}
+        <a href="https://www.ietlucknow.ac.in/sites/default/files/docs/UGC_Autonomy_2728.pdf">Autonomous </a>
+         Constituent Institute of Dr. A.P.J. Abdul Kalam Technical
+        University Uttar Pradesh, Lucknow
       </div>
 
       <div

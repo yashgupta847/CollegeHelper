@@ -7,8 +7,9 @@ const QuestionsPage = () => {
   const [questions, setQuestions] = useState([]);
   const [newQuestion, setNewQuestion] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [flashMessage, setFlashMessage] = useState("");
 
-  const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000"; 
+  const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
   useEffect(() => {
     axios
@@ -19,9 +20,22 @@ const QuestionsPage = () => {
       .catch((error) => console.error("Error fetching questions:", error));
   }, [apiUrl]);
 
+  // Move question card UP in the list
+  const moveUp = (id) => {
+    setQuestions((prev) => {
+      const index = prev.findIndex((q) => q._id === id);
+      if (index <= 0) return prev; // already at top
+
+      const newOrder = [...prev];
+      const item = newOrder.splice(index, 1)[0];
+      newOrder.unshift(item);
+
+      return newOrder;
+    });
+  };
+
   const handleQuestionSubmit = (e) => {
     e.preventDefault();
-
     if (newQuestion.trim() === "") return;
 
     axios
@@ -31,10 +45,11 @@ const QuestionsPage = () => {
         question: newQuestion,
       })
       .then((response) => {
-        setQuestions((prevQuestions) => [
-          response.data.newQuestion,
-          ...prevQuestions,
-        ]);
+        if (response.data.flash) {
+          setFlashMessage(response.data.flash);
+        }
+
+        setQuestions((prev) => [response.data.newQuestion, ...prev]);
         setNewQuestion("");
       })
       .catch((error) => console.error("Error submitting question:", error));
@@ -42,13 +57,26 @@ const QuestionsPage = () => {
 
   return (
     <div className="questions-page">
-      <h1 className="page-title">Ask a Question</h1>
 
+      {/* Warning Box */}
+      <div className="warning-box">
+        ⚠️ <strong>Strict Warning:</strong>
+        Any kind of misbehavior, abusive language, inappropriate questions,
+        misinformation, harassment, or illegal activity is strictly prohibited.
+        Your IP address is recorded. <strong>Violation → Cyber Cell action.</strong>
+      </div>
+
+      {/* Flash */}
+      {flashMessage && <div className="flash-box">{flashMessage}</div>}
+
+      <h1 className="page-title">Ask Relevant Question</h1>
+
+      {/* Ask Question Form */}
       <form onSubmit={handleQuestionSubmit} className="new-question-form">
         <textarea
           value={newQuestion}
           onChange={(e) => setNewQuestion(e.target.value)}
-          placeholder="𝐀𝐬𝐤 𝐐𝐮𝐞𝐬𝐭𝐢𝐨𝐧 𝐇𝐞𝐫𝐞...."
+          placeholder="Write your question here..."
           className="question-input"
         />
         <button type="submit" className="submit-button">
@@ -58,27 +86,33 @@ const QuestionsPage = () => {
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
+      {/* Questions List */}
       <div className="questions-list">
         {questions.filter((q) => !q.answer).length === 0 ? (
-          <p className="no-questions">No unanswered questions available.</p>
+          <p className="no-questions">No unanswered questions right now.</p>
         ) : (
           questions
-            .filter((question) => !question.answer) // show only unanswered
-            .map((question, index) => (
-              <div key={index} className="question-item">
-                <h3
-                  className="question-title"
-                  style={{ fontSize: "18px", color: "cyan" }}
+            .filter((q) => !q.answer)
+            .map((question) => (
+              <div key={question._id} className="question-item">
+
+                {/* UP Button */}
+                <button
+                  className="up-btn"
+                  onClick={() => moveUp(question._id)}
                 >
-                  𝐐- {question.question}
+                  ▲
+                </button>
+
+                {/* Question Text */}
+                <h3 className="question-title">
+                  <span className="q-label">QUES–</span>
+                  {question.question.toUpperCase()}
                 </h3>
 
-                <Link
-                  to={`/answers/${question._id}`}
-                  className="answer-link"
-                  style={{ textDecoration: "none" }}
-                >
-                  Answer this question - only admin allowed
+                {/* Answer Button */}
+                <Link to={`/answers/${question._id}`} className="answer-btn">
+                  Answer this question → (Admin Only)
                 </Link>
               </div>
             ))

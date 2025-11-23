@@ -4,6 +4,18 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
+const flash = require("connect-flash");
+const session = require("express-session");
+
+app.use(
+  session({
+    secret: "iet-secret",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+app.use(flash());
 
 const methodOverride = require("method-override");
 app.use(methodOverride("_method"));
@@ -24,7 +36,9 @@ app.get("/", (req, res) => {
 
 // DB connect
 mongoose
-  .connect("mongodb+srv://yashgupta5046:ietlko123@query.qihw2g1.mongodb.net/?appName=Query")
+  .connect(
+    "mongodb+srv://yashgupta5046:ietlko123@query.qihw2g1.mongodb.net/?appName=Query"
+  )
   .then(() => {
     console.log("MongoDB Connected");
 

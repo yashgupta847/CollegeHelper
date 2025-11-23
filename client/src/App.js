@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AnswerPage from './components/AnswerPage';
 import GlimpesPage from './components/GlimpesPage';
 import FAQPage from './components/FAQ';
+import Footer from './components/Footer';
 function App() {
   return (
     <Router>
@@ -19,7 +20,6 @@ function App() {
        <Route exact path="/answers" element={<AnsweredQuestionsPage/>} />
        <Route exact path="/glimpes" element={<GlimpesPage/>} />
        <Route exact path="/faq" element={<FAQPage/>} />
-
        </Routes>
     
     </Router>

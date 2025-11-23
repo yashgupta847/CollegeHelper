@@ -1,0 +1,98 @@
+.footer {
+    margin-left: 20px;
+  background: #ffffff;
+  color: #637B8C;
+  width: 90%;
+  padding: 40px 20px 0 20px;
+  border-top: 2px solid #e3e8ec;
+
+}
+
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Section Titles */
+.footer-section h3 {
+  color: #405463;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+  border-bottom: 2px solid #d6dee4;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+/* Lists */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.footer-section ul li:hover {
+  color: #2d4453;
+}
+
+/* Email Box */
+.email-box input {
+  width: 220px;
+  padding: 12px;
+  border: 2px solid #cdd6db;
+  border-radius: 8px;
+  background: #f9fbfc;
+  color: #637B8C;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.email-box input:hover {
+  border-color: #637B8C;
+}
+
+.click-note {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #8aa0af;
+}
+
+/* Contact Links */
+.footer-section a {
+  color: #637B8C;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  color: #2d4453;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #dbe2e8;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 14px;
+  color: #506575;
+}
+
+.footer-bottom p {
+  margin: 3px 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer {
+    padding: 25px 15px 0 15px;
+  }
+}

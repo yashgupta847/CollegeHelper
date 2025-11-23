@@ -1,66 +1,74 @@
+/* White background + green text theme */
 .landing-page {
-  background-color: #121212;
-  color: white;
-  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  color: #405a6c;
+  font-family: "Arial", sans-serif;
   text-align: center;
-  padding: 120px 20px 20px 20px; /* top right bottom left */
+  padding: 120px 20px 20px 20px;
 }
 
+/* Header */
 .landing-header h1 {
   font-size: 2rem;
   margin-bottom: 20px;
   font-weight: 700;
-  text-shadow: 0 0 10px #e67e22;
-  color:black;
-  display: inline-block;
-
-}
-.landing-header h1:hover{
-  color:white;
+  text-shadow: none;
+  color: #405a6c;
 }
 
+/* Remove hover effect */
+.landing-header h1:hover {
+color: #405a6c;
+}
+
+/* Image section */
 .image-container {
   margin-bottom: 30px;
 }
 
 .college-image {
   cursor: pointer;
-  pointer-events: auto;
   width: 80%;
   max-width: 600px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-  transition: transform 0.3s ease;
+  box-shadow: none; /* removed dark shadow for white theme */
+  transition: none; /* no hover effect */
 }
 
+/* No hover */
 .college-image:hover {
-  transform: scale(1.03);
+  transform: none;
 }
 
+/* Description */
 .description {
   font-size: 1.1rem;
   line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;
   text-align: left;
+color: #405a6c;
 }
 
-/* Bullet list styling */
+/* List Styling */
 .college-insights {
   padding-left: 1.5rem;
   margin-top: 20px;
 }
-.college-insights a{
+
+.college-insights a {
   text-decoration: none;
+color: #405a6c;
 }
+
 .college-insights li {
   margin-bottom: 15px;
 }
 
-/* Responsive styling */
+/* Responsive */
 @media (max-width: 768px) {
   .landing-header h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .description {
