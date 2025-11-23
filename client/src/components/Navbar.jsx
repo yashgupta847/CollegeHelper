@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to="/" onClick={() => setMenuOpen(false)}>
-          <img src="https://tse2.mm.bing.net/th/id/OIP.izIPeeYff_Brk7NvxmqK-QHaHa?pid=Api&P=0&h=180" />
+          <img src="http://online.ietlucknow.ac.in/assets/img/flag.png" />
         </Link>
         <Link to="/" onClick={() => setMenuOpen(false)}>
           <img src="https://www.ietlucknow.ac.in/sites/default/files/inline-images/aktu_logo.png" />
