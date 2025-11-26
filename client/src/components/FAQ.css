@@ -1,8 +1,8 @@
 /* MAIN FAQ PAGE */
 .faq-page {
   background-color: #ffffff;
-  color: #637B8C;
-  font-family: 'Arial', sans-serif;
+  color: #637b8c;
+  font-family: "DM Serif Text", serif;
   padding: 120px 20px 40px;
   min-height: 100vh;
   display: flex;
@@ -13,7 +13,7 @@
 /* TITLE */
 .faq-title {
   font-size: 1.8rem;
-  color: #637B8C;
+  color: #637b8c;
   font-weight: 700;
   margin-bottom: 30px;
 }
@@ -32,7 +32,7 @@
 
 /* HOVER EFFECT */
 .faq-item:hover {
-  border-color: #637B8C;
+  border-color: #637b8c;
 }
 
 /* QUESTION */
@@ -56,7 +56,7 @@
   display: none;
   padding-top: 10px;
   font-size: 0.95rem;
-  color: #637B8C;
+  color: #637b8c;
   line-height: 1.6;
   animation: slideDown 0.35s ease-out;
 }

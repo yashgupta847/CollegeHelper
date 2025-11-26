@@ -1,13 +1,11 @@
 .footer {
-    margin-left: 20px;
+  margin-left: 20px;
   background: #ffffff;
-  color: #637B8C;
+  color: #637b8c;
   width: 90%;
   padding: 40px 20px 0 20px;
   border-top: 2px solid #e3e8ec;
-
 }
-
 
 .footer-container {
   display: grid;
@@ -51,13 +49,13 @@
   border: 2px solid #cdd6db;
   border-radius: 8px;
   background: #f9fbfc;
-  color: #637B8C;
+  color: #637b8c;
   font-size: 14px;
   cursor: pointer;
 }
 
 .email-box input:hover {
-  border-color: #637B8C;
+  border-color: #637b8c;
 }
 
 .click-note {
@@ -68,7 +66,7 @@
 
 /* Contact Links */
 .footer-section a {
-  color: #637B8C;
+  color: #637b8c;
   text-decoration: none;
 }
 
