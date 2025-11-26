@@ -1,9 +1,10 @@
 /* General page styles */
+
 .answered-questions-page {
   background-color: #ffffff;
-  color: white;
-  font-family: "Arial", sans-serif;
-  padding: 120px 20px 5px 20px; 
+  color: hsl(0, 0%, 100%);
+  font-family: "DM Serif Text", serif;
+  padding: 120px 20px 5px 20px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,7 +19,6 @@
   margin-bottom: 40px;
   font-weight: 700;
 }
-
 
 /* Styling for the question list */
 .answered-questions-list {
@@ -101,7 +101,7 @@
   padding: 2px 6px;
   cursor: pointer;
   color: #637b8c;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Remove hover animation */
@@ -121,7 +121,7 @@
   font-size: 15px;
 }
 .answer-text {
-  font-size: 13px !important;   /* smaller ANS text */
+  font-size: 13px !important; /* smaller ANS text */
   color: #637b8c !important;
   display: flex;
   align-items: center;

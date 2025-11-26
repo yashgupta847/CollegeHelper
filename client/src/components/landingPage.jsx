@@ -13,7 +13,11 @@ const LandingPage = () => {
 
       {/* Image Section */}
       <div className="image-container">
-        <img src="/assets/image.png" alt="IET Lucknow" className="college-image" />
+        <img
+          src="/assets/image.png"
+          alt="IET Lucknow"
+          className="college-image"
+        />
       </div>
 
       <section className="description">
@@ -24,6 +28,16 @@ const LandingPage = () => {
           Kalam Technical University (AKTU). The campus spans 100 acres,
           providing a focused and vibrant academic environment.
         </p>
+
+        <div className="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/iZJxRAiMgD8"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </div>
 
         <ul className="college-insights">
           <li>

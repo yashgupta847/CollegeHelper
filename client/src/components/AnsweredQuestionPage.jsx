@@ -15,25 +15,19 @@ const AnsweredQuestions = () => {
       })
       .catch((error) => console.error("Error fetching questions:", error));
   }, []);
-
-  // Move item to top when clicked
   const moveUp = (id) => {
     setQuestions((prev) => {
       const index = prev.findIndex((q) => q._id === id);
-      if (index <= 0) return prev; // Already at top
-
+      if (index <= 0) return prev;
       const newOrder = [...prev];
       const item = newOrder.splice(index, 1)[0];
       newOrder.unshift(item);
-
       return newOrder;
     });
   };
-
   return (
     <div className="answered-questions-page">
       <h1 className="page-title">Answered Questions</h1>
-
       <div className="answered-questions-list">
         {questions.length === 0 ? (
           <p className="no-questions">No answered questions available.</p>
